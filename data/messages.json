@@ -1,0 +1,14 @@
+{
+  "announcement": {
+    "enabled": true,
+    "title": "Ausbildung",
+    "text": "Für Herbst 2026 suchen wir interessierte und engagierte Auszubildende"
+  },
+  "opening_hours": {
+    "lines": [
+      "Mo. – Do.: 7.00 – 16.00 Uhr",
+      "Freitag: geschlossen"
+    ],
+    "note": "Termine außerhalb der Zeiten nach Vereinbarung."
+  }
+}
