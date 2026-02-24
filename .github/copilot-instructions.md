@@ -30,3 +30,9 @@
 - Update sitemap when adding/removing pages.
 - No cookies, no tracking, no external requests.
 - German language throughout; concise headings.
+
+## Testing
+
+- Run `bash tests/run-tests.sh` for automated checks (structure, DSGVO, includes, fonts).
+- After deploying, verify the live site with the Chrome DevTools MCP tool or `curl`.
+- To check all links programmatically: `grep -roPh 'href="[^"]*"' index.html includes/ pages/ | sort -u`

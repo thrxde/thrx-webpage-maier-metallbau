@@ -9,7 +9,7 @@ async function loadIncludes() {
   if (header) {
     try {
       const res = await fetch(BASE + 'includes/header.html');
-      if (res.ok) header.innerHTML = await res.text();
+      if (res.ok) header.innerHTML = (await res.text()).replaceAll('{BASE}', BASE);
     } catch (e) {
       console.error('Header load failed:', e);
     }
@@ -18,7 +18,7 @@ async function loadIncludes() {
   if (footer) {
     try {
       const res = await fetch(BASE + 'includes/footer.html');
-      if (res.ok) footer.innerHTML = await res.text();
+      if (res.ok) footer.innerHTML = (await res.text()).replaceAll('{BASE}', BASE);
     } catch (e) {
       console.error('Footer load failed:', e);
     }
