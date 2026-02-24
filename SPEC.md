@@ -13,9 +13,10 @@
 | **Current site** | https://schlosserei-maier-ulm.de/ |
 | **Goal** | Replace existing site with modern, DSGVO-compliant static website |
 | **Tech stack** | Pure HTML/CSS/JS (no backend) |
+| **Repository** | https://github.com/schlosserei-maier-ulm/schlosserei-maier-ulm.github.io |
 | **Staging** | https://home.thrx.de/maier/ |
-| **Production** | schlosserei-maier-ulm.de (TBD) |
-| **Hosting options** | GitHub Pages or static server |
+| **Production** | https://schlosserei-maier-ulm.github.io (custom domain TBD) |
+| **Hosting** | GitHub Pages |
 
 ---
 
@@ -39,8 +40,8 @@
 | **No tracking** | No Google Analytics, Facebook Pixel, Hotjar, etc. |
 | **No external requests** | Self-host all fonts and assets; no third-party resources |
 | **No cookie banner** | Not required because no cookies/tracking are used |
-| **Impressum** | Complete legal notice per § 5 TMG |
-| **Datenschutzerklärung** | Privacy policy per Art. 13/14 DSGVO |
+| **Impressum** | Complete legal notice per § 5 TMG; include source code link |
+| **Datenschutzerklärung** | Privacy policy per Art. 13/14 DSGVO; include GitHub hosting info |
 | **Contact** | Phone/email only; no contact form (see future improvements) |
 | **SSL/TLS** | HTTPS enforced (server config) |
 
@@ -60,13 +61,13 @@ Since the site:
 
 ## 3. Editable Front-Page Messages
 
-A simple static JSON file that JavaScript fetches on page load. Admin edits the file via SSH/SFTP or a future admin tool.
+A static JSON file that JavaScript fetches on page load. Admin edits via GitHub web UI.
 
 ### 3.1 Use Cases
 
 | Type | Example |
 |------|---------|
-| Job postings | "Für Herbst 2025 suchen wir interessierte und engagierte Auszubildende" |
+| Job postings | "Für Herbst 2026 suchen wir interessierte und engagierte Auszubildende" |
 | Opening hours | "Mo. – Do.: 7.00 – 16.00 Uhr / Freitag: geschlossen" |
 | Announcements | "Betriebsurlaub 23.12. – 06.01." |
 
@@ -75,6 +76,10 @@ A simple static JSON file that JavaScript fetches on page load. Admin edits the 
 ```
 /data/
 └── messages.json      # Editable content
+
+/includes/
+├── header.html        # Shared header/nav
+└── footer.html        # Shared footer
 ```
 
 ### 3.3 Data Structure (`messages.json`)
@@ -84,7 +89,7 @@ A simple static JSON file that JavaScript fetches on page load. Admin edits the 
   "announcement": {
     "enabled": true,
     "title": "Ausbildung",
-    "text": "Für Herbst 2025 suchen wir interessierte und engagierte Auszubildende"
+    "text": "Für Herbst 2026 suchen wir interessierte und engagierte Auszubildende"
   },
   "opening_hours": {
     "lines": [
@@ -99,28 +104,27 @@ A simple static JSON file that JavaScript fetches on page load. Admin edits the 
 ### 3.4 Front-End Integration
 
 ```javascript
-// assets/js/messages.js
-fetch('/data/messages.json')
-  .then(r => r.json())
-  .then(data => {
-    if (data.announcement?.enabled) {
-      // Show banner
-    }
-    // Update opening hours card
-  });
+// assets/js/main.js
+const BASE = location.pathname.includes('/pages/') ? '../' : './';
+
+// Load header/footer
+fetch(BASE + 'includes/header.html').then(r => r.text()).then(html => {
+  document.getElementById('header').innerHTML = html;
+});
+
+// Load messages
+fetch(BASE + 'data/messages.json').then(r => r.json()).then(data => {
+  if (data.announcement?.enabled) {
+    // Show banner
+  }
+});
 ```
 
 ### 3.5 Editing Workflow
 
-**Option A: GitHub Pages (recommended)**
 1. Go to GitHub repo → `data/messages.json`
 2. Click pencil icon to edit
 3. Save (commit) → GitHub Pages rebuilds automatically (~1 min)
-
-**Option B: Static server (SSH/SFTP)**
-1. Connect via SSH/SFTP
-2. Edit `/data/messages.json`
-3. Save → changes live immediately
 
 ---
 
@@ -199,7 +203,8 @@ Footer:
 
 ### 6.1 Must Have
 - Pure HTML/CSS/JS (no build tools, no frameworks)
-- Works without JavaScript (progressive enhancement for messages)
+- **Separation of content and layout:** Text/data in HTML or JSON, styling in CSS only
+- **Reusable components:** Header and footer in separate files (`includes/header.html`, `includes/footer.html`), loaded via JavaScript
 - Accessible (WCAG 2.1 AA)
 - Fast loading (<3s on 3G)
 
@@ -224,17 +229,13 @@ rsync -avz --delete \
   ./ thr@gateway:/var/www/html/maier
 ```
 
-### 7.2 Production Options
+### 7.2 Production (GitHub Pages)
 
-**Option A: GitHub Pages**
-- Free HTTPS, auto-deploy on push
-- Custom domain via CNAME
+- Repository: `schlosserei-maier-ulm/schlosserei-maier-ulm.github.io`
+- URL: https://schlosserei-maier-ulm.github.io
+- Custom domain: schlosserei-maier-ulm.de (via CNAME)
+- Auto-deploy on push to `main`
 - Messages edited via GitHub web UI
-
-**Option B: Static server**
-- Apache/Nginx
-- Let's Encrypt certificate
-- Messages edited via SSH/SFTP
 
 ---
 
@@ -245,6 +246,7 @@ rsync -avz --delete \
 - [ ] Lighthouse mobile score ≥ 90
 - [ ] DSGVO compliance verified (no cookies, no tracking)
 - [ ] Impressum complete with correct company data
+- [ ] Impressum/Datenschutz include GitHub source & issues link
 - [ ] Datenschutz page complete
 - [ ] Fonts self-hosted in `assets/fonts/`
 - [ ] Messages.json loading works

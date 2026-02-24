@@ -16,15 +16,17 @@
 | File | Purpose |
 |------|---------|
 | `index.html` | Home page with anchors: `#about`, `#services`, `#gallery`, `#apprenticeship`, `#contact` |
+| `includes/header.html` | Shared header/nav (loaded via JS) |
+| `includes/footer.html` | Shared footer (loaded via JS) |
 | `assets/css/style.css` | All styles; mobile rules in media query at bottom |
-| `assets/js/main.js` | Lightbox for `data-gallery` / `.gallery-grid` images |
-| `data/messages.json` | Editable announcements & opening hours (JS fetch) |
+| `assets/js/main.js` | Loads header/footer/messages, lightbox for gallery |
+| `data/messages.json` | Editable announcements & opening hours |
 | `deploy.sh` | rsync to staging server |
 
 ## Rules
 
-- Keep JS minimal; progressive enhancement.
-- Preserve header/footer consistency across pages.
-- Update footer + sitemap when adding/removing pages.
+- Keep JS minimal.
+- Header/footer are in `includes/`; edit there, not in individual pages.
+- Update sitemap when adding/removing pages.
 - No cookies, no tracking, no external requests.
 - German language throughout; concise headings.
