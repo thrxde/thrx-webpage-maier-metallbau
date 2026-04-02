@@ -243,8 +243,21 @@ git add -A && git commit -m "..." && git push
 
 ## Changelog
 
+### 2026-04-02: Gallery reorganization with auto-loading
+- **Problem:** Gallery images scattered in flat folder, manual HTML updates needed for each new image.
+- **Solution:** Reorganized gallery pages into `pages/galerie/` subfolder, images into `assets/images/galerie/{service}/` subfolders.
+- **Features:** Created `gallery-loader.js` to auto-populate galleries from image folders. Any image added to a subfolder appears automatically (no HTML edits needed).
+- **Files changed:**
+  - Moved pages: `pages/galerie/{balkone,treppen,vordaecher,franzoesische-balkone,gartentueren,briefkastenanlagen,sonderkonstruktionen}.html`
+  - Moved `pages/galerie.html` → `pages/galerie/index.html`
+  - Categorized images to `assets/images/galerie/{service}/`
+  - Created `assets/js/gallery-loader.js`
+  - Updated links in `index.html`, `includes/footer.html`
+  - Updated `SPEC.md` with new structure and auto-loading docs
+- **Status:** ✅ Deployed and verified — all tests pass, galleries load automatically.
+
 ### 2026-04-02: Mobile header fix
 - **Problem:** Header consumed ~50% of mobile viewport — logo too large, nav links horizontal and cut off, phone button on separate row.
 - **Fix:** Added hamburger menu (`nav-toggle` button in header.html), collapsible nav on mobile (≤720px), smaller logo (100×44px), phone link inside nav dropdown. Desktop unchanged.
 - **Files changed:** `includes/header.html`, `assets/css/style.css`, `assets/js/main.js`
-- **Status:** Tested locally on 375×812 viewport — header now one compact row with hamburger icon. Needs commit, push, and deployment verification.
+- **Status:** ✅ Committed, pushed, deployed and verified.

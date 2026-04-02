@@ -1,15 +1,27 @@
-## Current Task: Commit & Verify Mobile Header Fix
+## Task: Reorganize Gallery Pages & Images
 
-### What's Done
-- Mobile header: hamburger menu implemented
-- Files modified: includes/header.html, assets/css/style.css, assets/js/main.js
-- Locally tested on 375×812 viewport
+### Structure Changes
+1. Move gallery pages to pages/galerie/:
+   - pages/balkone.html → pages/galerie/balkone.html
+   - pages/treppen.html → pages/galerie/treppen.html
+   - pages/vordaecher.html → pages/galerie/vordaecher.html
+   - pages/franzoesische-balkone.html → pages/galerie/franzoesische-balkone.html
+   - pages/gartentueren.html → pages/galerie/gartentueren.html
+   - pages/briefkastenanlagen.html → pages/galerie/briefkastenanlagen.html
+   - pages/sonderkonstruktionen.html → pages/galerie/sonderkonstruktionen.html
+   - pages/galerie.html → pages/galerie/index.html
 
-### What's Next
-1. Run tests
-2. Commit + push
-3. Wait for GitHub Pages deployment (~60s)
-4. Verify deployment on mobile & desktop
-5. Clean up .propt when done
+2. Categorize images to assets/images/galerie/{service}/
+
+3. Implement auto-loading: scan folders, populate galleries
+
+4. Update all links in:
+   - includes/header.html (nav links)
+   - includes/footer.html (footer links)
+   - index.html (hero/gallery links)
+   - pages/sitemap.html → pages/galerie/sitemap.html
+
+5. Update SPEC.md with new structure
+6. Update TODO.md with completed task
 
 ### Status: IN PROGRESS

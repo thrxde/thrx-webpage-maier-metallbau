@@ -59,11 +59,65 @@ Since the site:
 
 ---
 
-## 3. Editable Front-Page Messages
+## 3. Gallery Organization & Auto-Loading
+
+All gallery pages have been organized into a dedicated subfolder with automatic image loading from categorized image directories.
+
+### 3.1 Gallery Folder Structure
+
+```
+/pages/galerie/
+├── index.html                    # Full gallery (all services)
+├── balkone.html                  # Balkone & Balkongeländer
+├── treppen.html                  # Treppen & Treppengeländer
+├── vordaecher.html               # Vordächer & Terrassenüberdachungen
+├── franzoesische-balkone.html    # Französische Balkone
+├── gartentueren.html             # Gartentüren & Hoftore
+├── briefkastenanlagen.html       # Briefkastenanlagen
+└── sonderkonstruktionen.html     # Sonderkonstruktionen
+
+/assets/images/galerie/
+├── balkone/                      # Balkone images
+├── treppen/                      # Treppen images
+├── vordaecher/                   # Vordächer images
+├── franzoesische-balkone/        # Französische Balkone images
+├── gartentueren/                 # Gartentüren images
+├── briefkastenanlagen/           # Briefkastenanlagen images
+└── sonderkonstruktionen/         # Sonderkonstruktionen images
+```
+
+### 3.2 Automatic Image Loading
+
+Each gallery page uses the `gallery-loader.js` script to automatically load and display all images from its corresponding folder:
+
+- No manual HTML updates needed to add images
+- Simply add new images to the correct subfolder
+- Images are automatically displayed in the gallery grid
+- Works for both service-specific galleries and the full gallery (aggregates all services)
+
+**How it works:**
+```javascript
+<!-- Each gallery page includes a data-gallery attribute -->
+<div class="gallery-grid" id="gallery" data-gallery="balkone"></div>
+
+<!-- gallery-loader.js automatically populates it -->
+<script src="../../assets/js/gallery-loader.js"></script>
+```
+
+### 3.3 Adding New Images
+
+To add images to a service gallery:
+1. Add image files to `assets/images/galerie/{service}/`
+2. Update `assets/js/gallery-loader.js` image list for that service (optional, for ordering)
+3. Push to GitHub – images appear automatically on next deployment
+
+---
+
+## 4. Editable Front-Page Messages
 
 A static JSON file that JavaScript fetches on page load. Admin edits via GitHub web UI.
 
-### 3.1 Use Cases
+### 4.1 Use Cases
 
 | Type | Example |
 |------|---------|
@@ -71,7 +125,7 @@ A static JSON file that JavaScript fetches on page load. Admin edits via GitHub 
 | Opening hours | "Mo. – Do.: 7.00 – 16.00 Uhr / Freitag: geschlossen" |
 | Announcements | "Betriebsurlaub 23.12. – 06.01." |
 
-### 3.2 File Structure
+### 4.2 File Structure
 
 ```
 /data/
@@ -82,7 +136,7 @@ A static JSON file that JavaScript fetches on page load. Admin edits via GitHub 
 └── footer.html        # Shared footer
 ```
 
-### 3.3 Data Structure (`messages.json`)
+### 4.3 Data Structure (`messages.json`)
 
 ```json
 {
@@ -101,7 +155,7 @@ A static JSON file that JavaScript fetches on page load. Admin edits via GitHub 
 }
 ```
 
-### 3.4 Front-End Integration
+### 4.4 Front-End Integration
 
 ```javascript
 // assets/js/main.js
@@ -120,7 +174,7 @@ fetch(BASE + 'data/messages.json').then(r => r.json()).then(data => {
 });
 ```
 
-### 3.5 Editing Workflow
+### 4.5 Editing Workflow
 
 1. Go to GitHub repo → `data/messages.json`
 2. Click pencil icon to edit
@@ -128,21 +182,21 @@ fetch(BASE + 'data/messages.json').then(r => r.json()).then(data => {
 
 ---
 
-## 4. Site Structure
+## 5. Site Structure
 
-### 4.1 Pages
+### 10.1 Pages
 
 | Page | Path | Description |
 |------|------|-------------|
 | Home | `/index.html` | Hero, services overview, gallery teaser, contact |
-| Balkone | `/pages/balkone.html` | Balconies & railings |
-| Treppen | `/pages/treppen.html` | Stairs & handrails |
-| Vordächer | `/pages/vordaecher.html` | Canopies |
-| Franz. Balkone | `/pages/franzoesische-balkone.html` | French balconies |
-| Gartentüren | `/pages/gartentueren.html` | Garden gates |
-| Briefkastenanlagen | `/pages/briefkastenanlagen.html` | Mailbox systems |
-| Sonderkonstruktionen | `/pages/sonderkonstruktionen.html` | Custom metalwork |
-| Galerie | `/pages/galerie.html` | Full gallery |
+| Gallery (Full) | `/pages/galerie/index.html` | Full gallery with all services |
+| Balkone | `/pages/galerie/balkone.html` | Balconies & railings |
+| Treppen | `/pages/galerie/treppen.html` | Stairs & handrails |
+| Vordächer | `/pages/galerie/vordaecher.html` | Canopies |
+| Franz. Balkone | `/pages/galerie/franzoesische-balkone.html` | French balconies |
+| Gartentüren | `/pages/galerie/gartentueren.html` | Garden gates |
+| Briefkastenanlagen | `/pages/galerie/briefkastenanlagen.html` | Mailbox systems |
+| Sonderkonstruktionen | `/pages/galerie/sonderkonstruktionen.html` | Custom metalwork |
 | Ausbildung | `/pages/ausbildung.html` | Apprenticeship info |
 | Anfahrt | `/pages/anfahrt.html` | Directions & map |
 | Öffnungszeiten | `/pages/oeffnungszeiten.html` | Opening hours |
@@ -150,7 +204,7 @@ fetch(BASE + 'data/messages.json').then(r => r.json()).then(data => {
 | Datenschutz | `/pages/datenschutz.html` | Privacy policy |
 | Sitemap | `/pages/sitemap.html` | Site map |
 
-### 4.2 Navigation Structure
+### 10.2 Navigation Structure
 
 ```
 Header Nav:
@@ -168,9 +222,9 @@ Footer:
 
 ---
 
-## 5. Design System
+## 6. Design System
 
-### 5.1 Colors (CSS Variables)
+### 10.1 Colors (CSS Variables)
 
 | Variable | Usage |
 |----------|-------|
@@ -180,13 +234,13 @@ Footer:
 | `--color-accent` | Blue/cyan accent |
 | `--color-muted` | Secondary text |
 
-### 5.2 Typography
+### 10.2 Typography
 
 - **Primary font:** Manrope (self-hosted for DSGVO)
 - **Weights:** 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
 - **Scale:** 16px base, 1.25 ratio
 
-### 5.3 Components
+### 10.3 Components
 
 - `.shell` – max-width container
 - `.section` – vertical spacing
@@ -199,16 +253,16 @@ Footer:
 
 ---
 
-## 6. Technical Constraints
+## 7. Technical Constraints
 
-### 6.1 Must Have
+### 10.1 Must Have
 - Pure HTML/CSS/JS (no build tools, no frameworks)
 - **Separation of content and layout:** Text/data in HTML or JSON, styling in CSS only
 - **Reusable components:** Header and footer in separate files (`includes/header.html`, `includes/footer.html`), loaded via JavaScript
 - Accessible (WCAG 2.1 AA)
 - Fast loading (<3s on 3G)
 
-### 6.2 Must NOT Have
+### 10.2 Must NOT Have
 - Cookies or local storage
 - External tracking/analytics
 - Contact forms or external form processors
@@ -217,9 +271,9 @@ Footer:
 
 ---
 
-## 7. Deployment
+## 8. Deployment
 
-### 7.1 Staging (current)
+### 10.1 Staging (current)
 
 ```bash
 # deploy.sh → https://home.thrx.de/maier/
@@ -229,7 +283,7 @@ rsync -avz --delete \
   ./ thr@gateway:/var/www/html/maier
 ```
 
-### 7.2 Production (GitHub Pages)
+### 10.2 Production (GitHub Pages)
 
 - Repository: `schlosserei-maier-ulm/schlosserei-maier-ulm.github.io`
 - URL: https://schlosserei-maier-ulm.github.io
@@ -239,7 +293,7 @@ rsync -avz --delete \
 
 ---
 
-## 8. Checklist
+## 9. Checklist
 
 ### Pre-Launch
 - [ ] All pages responsive (test on real devices)
@@ -260,7 +314,7 @@ rsync -avz --delete \
 
 ---
 
-## 9. Future Improvements
+## 10. Future Improvements
 
 | Feature | Priority | Notes |
 |---------|----------|-------|
