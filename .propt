@@ -1,0 +1,15 @@
+## Current Task: Commit & Verify Mobile Header Fix
+
+### What's Done
+- Mobile header: hamburger menu implemented
+- Files modified: includes/header.html, assets/css/style.css, assets/js/main.js
+- Locally tested on 375×812 viewport
+
+### What's Next
+1. Run tests
+2. Commit + push
+3. Wait for GitHub Pages deployment (~60s)
+4. Verify deployment on mobile & desktop
+5. Clean up .propt when done
+
+### Status: IN PROGRESS

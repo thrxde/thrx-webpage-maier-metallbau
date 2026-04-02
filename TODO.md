@@ -238,3 +238,13 @@ git add -A && git commit -m "..." && git push
       https://schlosserei-maier-ulm.github.io/ to identify any features, content, or pages we missed.
       Use Chrome DevTools MCP to snapshot both sites and diff them section by section:
       header, hero, about, services, gallery, apprenticeship, contact, footer, subpages.
+
+---
+
+## Changelog
+
+### 2026-04-02: Mobile header fix
+- **Problem:** Header consumed ~50% of mobile viewport — logo too large, nav links horizontal and cut off, phone button on separate row.
+- **Fix:** Added hamburger menu (`nav-toggle` button in header.html), collapsible nav on mobile (≤720px), smaller logo (100×44px), phone link inside nav dropdown. Desktop unchanged.
+- **Files changed:** `includes/header.html`, `assets/css/style.css`, `assets/js/main.js`
+- **Status:** Tested locally on 375×812 viewport — header now one compact row with hamburger icon. Needs commit, push, and deployment verification.

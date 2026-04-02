@@ -64,6 +64,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadIncludes();
   await loadMessages();
 
+  // Mobile nav toggle
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.site-header .nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !open);
+      nav.classList.toggle('is-open', !open);
+    });
+    // Close menu when a nav link is tapped
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('is-open');
+      });
+    });
+  }
+
   // Lightbox setup
   const lightbox = document.createElement('div');
   lightbox.className = 'lightbox';

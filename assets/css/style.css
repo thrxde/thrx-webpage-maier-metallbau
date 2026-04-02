@@ -115,6 +115,40 @@ a:hover {
   border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
+/* Hamburger toggle – hidden on desktop */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  gap: 5px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Phone link inside nav – mobile only */
+.nav__phone { display: none; }
+
+/* Phone button – desktop only */
+.btn--phone-desktop { display: inline-flex; }
+
 .brand__text {
   display: flex;
   flex-direction: column;
@@ -480,8 +514,48 @@ p {
 }
 
 @media (max-width: 720px) {
-  .site-header .shell { flex-wrap: wrap; }
-  .nav { width: 100%; justify-content: flex-start; overflow-x: auto; }
+  .site-header .shell {
+    flex-wrap: wrap;
+    padding: 10px 0;
+  }
+  .brand__logo {
+    width: 100px;
+    height: 44px;
+    padding: 3px;
+    border-radius: 8px;
+  }
+  .brand__text { font-size: 11px; }
+  .brand { gap: 8px; }
+
+  /* Show hamburger */
+  .nav-toggle { display: flex; }
+
+  /* Hide desktop phone button */
+  .btn--phone-desktop { display: none; }
+
+  /* Collapsible nav */
+  .nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0 4px;
+  }
+  .nav.is-open { display: flex; }
+  .nav a {
+    padding: 12px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    width: 100%;
+  }
+  .nav a:last-child { border-bottom: none; }
+
+  /* Show phone link inside nav on mobile */
+  .nav__phone {
+    display: flex;
+    font-weight: 700;
+    color: var(--accent) !important;
+  }
+
   .hero__image-stack { grid-template-columns: 1fr; }
   .service-card { grid-template-rows: 180px 1fr; }
 }
