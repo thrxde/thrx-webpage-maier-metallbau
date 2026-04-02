@@ -34,5 +34,5 @@
 ## Testing
 
 - Run `bash tests/run-tests.sh` for automated checks (structure, DSGVO, includes, fonts).
-- After deploying, verify the live site with the Chrome DevTools MCP tool or `curl`.
+- After deploying, run `tests/deployment-test.md` via Chrome DevTools MCP in opencode.
 - To check all links programmatically: `grep -roPh 'href="[^"]*"' index.html includes/ pages/ | sort -u`

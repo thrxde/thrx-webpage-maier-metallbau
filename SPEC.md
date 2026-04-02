@@ -244,12 +244,12 @@ rsync -avz --delete \
 ### Pre-Launch
 - [ ] All pages responsive (test on real devices)
 - [ ] Lighthouse mobile score ≥ 90
-- [ ] DSGVO compliance verified (no cookies, no tracking)
-- [ ] Impressum complete with correct company data
-- [ ] Impressum/Datenschutz include GitHub source & issues link
-- [ ] Datenschutz page complete
-- [ ] Fonts self-hosted in `assets/fonts/`
-- [ ] Messages.json loading works
+- [x] DSGVO compliance verified (no cookies, no tracking)
+- [x] Impressum complete with correct company data
+- [x] Impressum/Datenschutz include GitHub source & issues link
+- [x] Datenschutz page complete
+- [x] Fonts self-hosted in `assets/fonts/`
+- [x] Messages.json loading works
 - [ ] All images optimized (WebP preferred)
 - [ ] Alt text on all images
 

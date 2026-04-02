@@ -4,63 +4,58 @@
 
 ---
 
-## Phase 1: Core Infrastructure (Parallelizable)
+## Phase 1: Core Infrastructure ✅
 
-### 1.1 Includes System
-| Task | Agent | Dependencies | Acceptance Criteria |
-|------|-------|--------------|---------------------|
-| Create `includes/header.html` | Agent A | None | Header HTML extracted from index.html |
-| Create `includes/footer.html` | Agent A | None | Footer HTML extracted from index.html |
-| Update `main.js` includes loader | Agent B | None | Loads header/footer with BASE path detection |
+### 1.1 Includes System ✅
+| Task | Status | Acceptance Criteria |
+|------|--------|---------------------|
+| Create `includes/header.html` | ✅ | Header HTML with `{BASE}` placeholders |
+| Create `includes/footer.html` | ✅ | Footer HTML with `{BASE}` placeholders |
+| Update `main.js` includes loader | ✅ | Loads header/footer, replaces `{BASE}` with detected path |
 
-### 1.2 Fonts (DSGVO)
-| Task | Agent | Dependencies | Acceptance Criteria |
-|------|-------|--------------|---------------------|
-| Download Manrope woff2 files | Agent C | None | Files in `assets/fonts/` |
-| Create `@font-face` CSS | Agent C | Fonts downloaded | No Google Fonts requests |
-| Remove Google Fonts links | Agent C | @font-face ready | All HTML files updated |
+### 1.2 Fonts (DSGVO) ✅
+| Task | Status | Acceptance Criteria |
+|------|--------|---------------------|
+| Download Manrope woff2 files | ✅ | 4 weights in `assets/fonts/` (400/500/600/700) |
+| Create `@font-face` CSS | ✅ | Declarations at top of `style.css` |
+| Remove Google Fonts links | ✅ | All 15 HTML files updated |
 
-### 1.3 Messages System
-| Task | Agent | Dependencies | Acceptance Criteria |
-|------|-------|--------------|---------------------|
-| Create `data/messages.json` | Agent D | None | Valid JSON with announcement & opening_hours |
-| Implement messages loader | Agent D | JSON exists | Banner shows when enabled |
+### 1.3 Messages System ✅
+| Task | Status | Acceptance Criteria |
+|------|--------|---------------------|
+| Create `data/messages.json` | ✅ | Valid JSON with announcement & opening_hours |
+| Implement messages loader | ✅ | Banner shows when enabled, hours card populated |
 
 ---
 
-## Phase 2: Page Updates (Sequential per file, parallel across files)
+## Phase 2: Page Updates ✅
 
-### 2.1 Update Pages for Includes
-Each page needs:
-- Replace `<header>...</header>` with `<div id="header"></div>`
-- Replace `<footer>...</footer>` with `<div id="footer"></div>`
-- Remove Google Fonts links
-- Ensure `main.js` is loaded
+### 2.1 Update Pages for Includes ✅
+All 15 pages updated: Google Fonts removed, header/footer replaced with `<div id="site-header/footer"></div>` placeholders.
 
 | Page | Status |
 |------|--------|
-| index.html | ⏳ |
-| pages/balkone.html | ⏳ |
-| pages/treppen.html | ⏳ |
-| pages/vordaecher.html | ⏳ |
-| pages/franzoesische-balkone.html | ⏳ |
-| pages/gartentueren.html | ⏳ |
-| pages/briefkastenanlagen.html | ⏳ |
-| pages/sonderkonstruktionen.html | ⏳ |
-| pages/galerie.html | ⏳ |
-| pages/ausbildung.html | ⏳ |
-| pages/anfahrt.html | ⏳ |
-| pages/oeffnungszeiten.html | ⏳ |
-| pages/impressum.html | ⏳ |
-| pages/datenschutz.html | ⏳ |
-| pages/sitemap.html | ⏳ |
+| index.html | ✅ |
+| pages/balkone.html | ✅ |
+| pages/treppen.html | ✅ |
+| pages/vordaecher.html | ✅ |
+| pages/franzoesische-balkone.html | ✅ |
+| pages/gartentueren.html | ✅ |
+| pages/briefkastenanlagen.html | ✅ |
+| pages/sonderkonstruktionen.html | ✅ |
+| pages/galerie.html | ✅ |
+| pages/ausbildung.html | ✅ |
+| pages/anfahrt.html | ✅ |
+| pages/oeffnungszeiten.html | ✅ |
+| pages/impressum.html | ✅ |
+| pages/datenschutz.html | ✅ |
+| pages/sitemap.html | ✅ |
 
-### 2.2 Legal Pages Updates
-| Task | Page | Content |
-|------|------|---------|
-| Add source link | impressum.html | Link to GitHub repo |
-| Add issues link | impressum.html | Link to GitHub issues |
-| Add GitHub hosting info | datenschutz.html | Mention GitHub Pages, link to GitHub privacy |
+### 2.2 Legal Pages Updates ✅
+| Task | Page | Status |
+|------|------|--------|
+| Add Quelltext section with GitHub repo + issues links | impressum.html | ✅ |
+| Add GitHub Pages hosting info with repo link | datenschutz.html | ✅ |
 
 ---
 
@@ -234,3 +229,12 @@ curl -s http://localhost:8000 | grep -E "(googleapis|gstatic|analytics|facebook)
 # Deploy
 git add -A && git commit -m "..." && git push
 ```
+
+---
+
+## Open Tasks
+
+- [ ] **Compare with original site** — Visit https://schlosserei-maier-ulm.de and compare against
+      https://schlosserei-maier-ulm.github.io/ to identify any features, content, or pages we missed.
+      Use Chrome DevTools MCP to snapshot both sites and diff them section by section:
+      header, hero, about, services, gallery, apprenticeship, contact, footer, subpages.
