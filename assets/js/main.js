@@ -64,14 +64,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadIncludes();
   await loadMessages();
 
-  // Inject back-to-gallery button on galerie sub-pages
-  const pageHeader = document.querySelector('.page-header .shell');
-  if (pageHeader && location.pathname.includes('/pages/galerie/') && !location.pathname.endsWith('/index.html')) {
+  // Inject back-to-gallery button on galerie sub-pages (below the gallery grid)
+  const galleryMain = document.querySelector('main.shell');
+  if (galleryMain && location.pathname.includes('/pages/galerie/') && !location.pathname.endsWith('/index.html')) {
     const backBtn = document.createElement('a');
     backBtn.href = '../../index.html#gallery';
     backBtn.className = 'gallery-close-btn';
     backBtn.innerHTML = '← Zurück zur Übersicht';
-    pageHeader.insertBefore(backBtn, pageHeader.firstChild);
+    galleryMain.appendChild(backBtn);
   }
 
   // Mobile nav toggle
