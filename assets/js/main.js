@@ -98,12 +98,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   lightbox.innerHTML = `
     <div class="lightbox__inner">
       <div class="lightbox__stage">
-        <button class="lightbox__nav lightbox__nav--prev" aria-label="Vorheriges Bild">&#8249;</button>
         <img alt="" />
-        <button class="lightbox__nav lightbox__nav--next" aria-label="Nächstes Bild">&#8250;</button>
       </div>
       <div class="lightbox__controls">
+        <button class="lightbox__nav lightbox__nav--prev" aria-label="Vorheriges Bild">&#8249;</button>
         <button class="lightbox__close" aria-label="Schließen">Schließen</button>
+        <button class="lightbox__nav lightbox__nav--next" aria-label="Nächstes Bild">&#8250;</button>
       </div>
     </div>`;
   document.body.appendChild(lightbox);

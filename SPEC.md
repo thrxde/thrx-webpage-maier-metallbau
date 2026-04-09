@@ -117,8 +117,8 @@ To add images to a service gallery:
 
 When a visitor clicks an image in any gallery, a lightbox overlay opens. Requirements:
 
-- **Previous / Next buttons** – left and right arrow buttons to navigate between images in the current gallery without closing the lightbox
-- **Schließen button** – centered below the image (not top-right corner); closes the lightbox
+- **Previous / Next buttons** – shown next to the **Schließen** button below the image to navigate within the current gallery without closing the lightbox
+- **Schließen button** – centered in the control row below the image (not top-right corner); closes the lightbox
 - Keyboard: `Escape` closes, `←` / `→` navigate
 - Click outside the image also closes
 
