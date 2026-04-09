@@ -95,29 +95,68 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Lightbox setup
   const lightbox = document.createElement('div');
   lightbox.className = 'lightbox';
-  lightbox.innerHTML = '<button class="lightbox__close" aria-label="Schließen">Schließen</button><img alt="" />';
+  lightbox.innerHTML = `
+    <div class="lightbox__inner">
+      <div class="lightbox__stage">
+        <button class="lightbox__nav lightbox__nav--prev" aria-label="Vorheriges Bild">&#8249;</button>
+        <img alt="" />
+        <button class="lightbox__nav lightbox__nav--next" aria-label="Nächstes Bild">&#8250;</button>
+      </div>
+      <div class="lightbox__controls">
+        <button class="lightbox__close" aria-label="Schließen">Schließen</button>
+      </div>
+    </div>`;
   document.body.appendChild(lightbox);
 
   const lbImg = lightbox.querySelector('img');
   const lbClose = lightbox.querySelector('.lightbox__close');
+  const lbPrev = lightbox.querySelector('.lightbox__nav--prev');
+  const lbNext = lightbox.querySelector('.lightbox__nav--next');
 
-  const open = (src, alt) => {
-    lbImg.src = src;
-    lbImg.alt = alt || '';
+  let galleryImgs = [];
+  let currentIndex = 0;
+
+  const updateNav = () => {
+    lbPrev.style.visibility = currentIndex > 0 ? 'visible' : 'hidden';
+    lbNext.style.visibility = currentIndex < galleryImgs.length - 1 ? 'visible' : 'hidden';
+  };
+
+  const open = (imgs, index) => {
+    galleryImgs = imgs;
+    currentIndex = index;
+    lbImg.src = galleryImgs[currentIndex].src;
+    lbImg.alt = galleryImgs[currentIndex].alt || '';
+    updateNav();
     lightbox.classList.add('active');
   };
 
   const close = () => lightbox.classList.remove('active');
 
+  const navigate = (dir) => {
+    currentIndex = Math.max(0, Math.min(galleryImgs.length - 1, currentIndex + dir));
+    lbImg.src = galleryImgs[currentIndex].src;
+    lbImg.alt = galleryImgs[currentIndex].alt || '';
+    updateNav();
+  };
+
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox || e.target === lbClose) close();
   });
+  lbPrev.addEventListener('click', (e) => { e.stopPropagation(); navigate(-1); });
+  lbNext.addEventListener('click', (e) => { e.stopPropagation(); navigate(1); });
   document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
     if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
   });
 
   document.querySelectorAll('[data-gallery] img, .gallery-grid img').forEach((img) => {
     img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => open(img.src, img.alt));
+    img.addEventListener('click', () => {
+      const container = img.closest('[data-gallery]') || img.closest('.gallery-grid') || img.closest('.masonry');
+      const imgs = container ? Array.from(container.querySelectorAll('img')) : [img];
+      open(imgs, imgs.indexOf(img));
+    });
   });
 });
