@@ -55,9 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         'franzoesische-balkone': [
           'IMG_3310.jpg',
           'IMG_3311.jpg',
-          'Edelstahl-mit-Klarglas-ohne-Handlauf.jpg',
-          'TreppenhausfestverglasungI.jpg',
-          'TreppenhausfestverglasungII.jpg'
+          'Edelstahl-mit-Klarglas-ohne-Handlauf.jpg'
         ],
         'gartentueren': [
           'DSC00852.jpg',
@@ -133,9 +131,7 @@ function loadAllGalleries(basePath, gallery) {
     'franzoesische-balkone': [
       'IMG_3310.jpg',
       'IMG_3311.jpg',
-      'Edelstahl-mit-Klarglas-ohne-Handlauf.jpg',
-      'TreppenhausfestverglasungI.jpg',
-      'TreppenhausfestverglasungII.jpg'
+      'Edelstahl-mit-Klarglas-ohne-Handlauf.jpg'
     ],
     'gartentueren': [
       'DSC00852.jpg',
