@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', async () => {
           'VA-Treppengeländer-mit-Klarglasfüllung-und-VA-Glashalter-II.jpg',
           'VA-Treppengeländer-mit-Klarglasfüllung-und-VA-Glashalter-III-e1495619337769.jpg',
           'TreppenhausfestverglasungI.jpg',
-          'Riek-Treppe-1.jpg',
-          'Riek-Treppe.jpg'
+          'R-Treppe-1.jpg',
+          'R-Treppe.jpg'
         ],
         'vordaecher': [
           'Balkon-und-Terrassenüberdachung-in-verzinkter-Ausführung.jpg',
@@ -115,8 +115,8 @@ function loadAllGalleries(basePath, gallery) {
       'VA-Treppengeländer-mit-Klarglasfüllung-und-VA-Glashalter-II.jpg',
       'VA-Treppengeländer-mit-Klarglasfüllung-und-VA-Glashalter-III-e1495619337769.jpg',
       'TreppenhausfestverglasungI.jpg',
-      'Riek-Treppe-1.jpg',
-      'Riek-Treppe.jpg'
+      'R-Treppe-1.jpg',
+      'R-Treppe.jpg'
     ],
     'vordaecher': [
       'Balkon-und-Terrassenüberdachung-in-verzinkter-Ausführung.jpg',

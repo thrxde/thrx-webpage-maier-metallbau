@@ -234,6 +234,16 @@ git add -A && git commit -m "..." && git push
 
 ## Open Tasks
 
+- [x] **Lightbox navigation & close button** — ✅ Implemented
+
+- [x] **Gallery page back-navigation** — ✅ Implemented
+
+- [x] **Sitemap gallery links broken** — ✅ Fixed
+
+- [x] **Announcement banner unstyled** — ✅ CSS added
+
+- [x] **Opening hours hardcoded** — ✅ Now dynamic via messages.json
+
 - [ ] **Compare with original site** — Visit https://schlosserei-maier-ulm.de and compare against
       https://schlosserei-maier-ulm.github.io/ to identify any features, content, or pages we missed.
       Use Chrome DevTools MCP to snapshot both sites and diff them section by section:

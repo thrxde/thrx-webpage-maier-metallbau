@@ -111,6 +111,21 @@ To add images to a service gallery:
 2. Update `assets/js/gallery-loader.js` image list for that service (optional, for ordering)
 3. Push to GitHub – images appear automatically on next deployment
 
+> **Note:** Image filenames must not contain customer names. Use neutral descriptive names (e.g. `R-Treppe.jpg` instead of `Riek-Treppe.jpg`).
+
+### 3.4 Lightbox (Zoom View)
+
+When a visitor clicks an image in any gallery, a lightbox overlay opens. Requirements:
+
+- **Previous / Next buttons** – left and right arrow buttons to navigate between images in the current gallery without closing the lightbox
+- **Schließen button** – centered below the image (not top-right corner); closes the lightbox
+- Keyboard: `Escape` closes, `←` / `→` navigate
+- Click outside the image also closes
+
+### 3.5 Gallery Page – Back Navigation
+
+Each gallery sub-page (`/pages/galerie/*.html`) must display a prominent **„Schließen"** button (or back link) that returns the visitor to the main index page (`/index.html#gallery`). It should be visible without scrolling (e.g. fixed or near the top of the page).
+
 ---
 
 ## 4. Editable Front-Page Messages
