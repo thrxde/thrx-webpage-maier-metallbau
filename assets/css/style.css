@@ -101,7 +101,7 @@ a:hover {
 
 .announcement-banner__close {
   position: absolute;
-  right: 12px;
+  right: 4px;
   top: 50%;
   transform: translateY(-50%);
   background: none;
@@ -110,7 +110,11 @@ a:hover {
   font-size: 20px;
   line-height: 1;
   cursor: pointer;
-  padding: 4px 8px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 4px;
   transition: color 0.2s;
 }
@@ -451,8 +455,8 @@ p {
 .brand--small .brand__logo { width: 120px; height: 60px; }
 
 .link-list { list-style: none; padding: 0; margin: 0; }
-.link-list li { margin-bottom: 8px; }
-.link-list a { color: var(--text-dim); }
+.link-list li { margin-bottom: 2px; }
+.link-list a { color: var(--text-dim); display: inline-block; padding: 8px 0; }
 .link-list a:hover { color: #fff; }
 
 .gallery-grid {
@@ -617,7 +621,7 @@ p {
 
 .lightbox__close:hover { background: rgba(255, 255, 255, 0.2); }
 
-@media (max-width: 720px) {
+@media (max-width: 860px) {
   .site-header .shell {
     flex-wrap: wrap;
     padding: 10px 0;

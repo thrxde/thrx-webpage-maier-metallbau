@@ -244,10 +244,61 @@ git add -A && git commit -m "..." && git push
 
 - [x] **Opening hours hardcoded** — ✅ Now dynamic via messages.json
 
-- [ ] **Compare with original site** — Visit https://schlosserei-maier-ulm.de and compare against
-      https://schlosserei-maier-ulm.github.io/ to identify any features, content, or pages we missed.
-      Use Chrome DevTools MCP to snapshot both sites and diff them section by section:
-      header, hero, about, services, gallery, apprenticeship, contact, footer, subpages.
+- [x] **Compare with original site** — Compared via Chrome DevTools MCP (2026-04-21). See results below.
+
+### Comparison Results: Original (WordPress) vs. Redesign (Static)
+
+#### Section-by-Section Analysis
+
+| Section | Original | Redesign | Status |
+|---------|----------|----------|--------|
+| **Header** | Logo image + site title + tagline | Logo text + nav + phone link | OK — improved |
+| **Navigation** | Über uns, Unser Aufgabenbereich, Galerie (submenu), Anfahrt, Datenschutz, Impressum | Über uns, Leistungen, Galerie, Ausbildung, Kontakt | OK — cleaner |
+| **Sidebar** | Address, opening hours, job offers, search, Ausbildung (WordPress widgets) | Integrated into homepage sections (opening hours card, contact section) | OK — content preserved, layout modernized |
+| **Homepage / About** | "Herzlich willkommen" text, customer list, team size, image slider | Same text, same customer list, same team, image stack | OK — content matches |
+| **Services** | "Unser Aufgabenbereich" separate page (broken — showed Ausbildung post instead) | Service cards on homepage with images linking to gallery categories | OK — improved |
+| **Gallery** | 8 categories: Balkone, Treppen, Vordächer, Franz. Balkone, **Carporte**, Gartentüren, Briefkastenanlagen, Verschiedenes | 7 categories: Balkone, Treppen, Vordächer, Franz. Balkone, Gartentüren, Briefkastenanlagen, Sonderkonstruktionen | DIFF — see below |
+| **Ausbildung** | Job posting + link to profession description sub-page | Job posting with profession details integrated into same page | OK — improved |
+| **Anfahrt** | Logo, address, email, static map image, Google Maps links | Address, email, static map image, Google Maps link with DSGVO notice | OK — improved |
+| **Impressum** | Standard WordPress legal page | Standard legal page + source code links | OK — improved |
+| **Datenschutz** | WordPress privacy policy | Custom DSGVO privacy policy + GitHub hosting info | OK — improved |
+| **Footer** | "Datenschutzerklärung" link + "Mit Stolz präsentiert von WordPress" | 3-column footer (services, info, legal) | OK — improved |
+| **Cookie banner** | "Diese Website verwendet technisch notwendige Cookies" | None (no cookies set = no banner needed) | OK — DSGVO improvement |
+
+#### Findings / Differences
+
+1. **Carporte gallery category missing** (LOW priority)
+   - Original has "Carporte" as a gallery category, but its page content says "Wir sind noch mitten im Aufbau der neuen Internetseite. Wir bitten um Geduld!" — it's a placeholder with zero images.
+   - **Decision: Skip** — the original never had actual Carporte content. If needed later, add as a Sonderkonstruktionen subcategory.
+
+2. **"Verschiedenes" renamed to "Sonderkonstruktionen"** (OK)
+   - The original called it "Verschiedenes" (miscellaneous). The redesign uses "Sonderkonstruktionen" (custom constructions) — a better, more professional label. Content is the same.
+
+3. **"Unser Aufgabenbereich" page removed** (OK)
+   - The original had a separate "Unser Aufgabenbereich" (services) page, but it was broken (displayed an Ausbildung blog post instead of services content). The redesign integrates services as cards on the homepage linking to gallery categories. This is an improvement.
+
+4. **Profession description sub-page integrated** (OK)
+   - Original had `/ausbildung-zum-metallbauer-beschreibung/` as a separate page with detailed profession info (job tasks, requirements, qualifications). The redesign integrates key points into the Ausbildung page directly. The detailed Bundesagentur-style text about the profession is condensed into practical bullet points. No content loss.
+
+5. **Email address consistent** (OK)
+   - Both sites use `Schlosserei-Maier@freenet.de`
+
+6. **Job posting year outdated on original** (INFO)
+   - Original says "Herbst 2025", redesign also says "Start Herbst 2025". Both should be updated to "Herbst 2026" before launch.
+
+7. **Google Maps URL** (OK)
+   - Both sites link to the same Google Maps location. Redesign adds DSGVO notice about data transfer to Google.
+
+8. **Search functionality removed** (OK)
+   - Original had a WordPress search widget in the sidebar. Redesign has no search (not needed for a ~16-page static site).
+
+#### Conclusion
+
+**No missing features or content.** The redesign covers all content from the original WordPress site. The only structural difference is the Carporte gallery category, which was a placeholder with no images on the original site. All text content, contact info, legal pages, and gallery images are present in the redesign.
+
+**Action items before launch:**
+- [ ] Update "Herbst 2025" → "Herbst 2026" in `pages/ausbildung.html` and `data/messages.json`
+- [ ] Run pre-launch checklist (responsive testing, Lighthouse, image optimization, alt text audit)
 
 ---
 
