@@ -311,7 +311,7 @@ rsync -avz --delete \
 ## 9. Checklist
 
 ### Pre-Launch
-- [ ] All pages responsive (test on real devices)
+- [x] All pages responsive (test on real devices)
 - [ ] Lighthouse mobile score ≥ 90
 - [x] DSGVO compliance verified (no cookies, no tracking)
 - [x] Impressum complete with correct company data
@@ -349,5 +349,5 @@ rsync -avz --delete \
 | No contact form | ✅ |
 | Impressum present | ✅ |
 | Datenschutz present | ✅ |
-| Fonts self-hosted | ⏳ TODO |
+| Fonts self-hosted | ✅ |
 | HTTPS enforced | ⏳ Server config |
