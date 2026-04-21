@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       };
 
       const images = imageMap[galleryName] || [];
-      loadGalleryImagesFromList(images, imagePath, gallery);
+      loadGalleryImagesFromList(images, imagePath, gallery, galleryName);
     }
   } catch (error) {
     console.error('Error loading gallery:', error);
@@ -162,16 +162,41 @@ function loadAllGalleries(basePath, gallery) {
 
   Object.entries(galleries).forEach(([name, images]) => {
     const imagePath = `${basePath}assets/images/galerie/${name}/`;
-    loadGalleryImagesFromList(images, imagePath, gallery);
+    loadGalleryImagesFromList(images, imagePath, gallery, name);
   });
 }
 
-function loadGalleryImagesFromList(images, imagePath, gallery) {
+function loadGalleryImagesFromList(images, imagePath, gallery, categoryName) {
+  // Human-readable category labels for camera-filename fallbacks
+  const categoryLabels = {
+    'balkone': 'Balkongeländer',
+    'treppen': 'Treppengeländer',
+    'vordaecher': 'Vordach',
+    'franzoesische-balkone': 'Französischer Balkon',
+    'gartentueren': 'Gartentüre',
+    'briefkastenanlagen': 'Briefkastenanlage',
+    'sonderkonstruktionen': 'Sonderkonstruktion'
+  };
+
   images.forEach(filename => {
     const figure = document.createElement('figure');
     const img = document.createElement('img');
     img.src = imagePath + filename;
-    img.alt = filename.replace(/\.[^/.]+$/, '').replace(/-/g, ' ');
+
+    // Generate meaningful alt text from filename
+    let alt = filename
+      .replace(/\.[^/.]+$/, '')       // strip file extension
+      .replace(/-e\d{10,}/, '')       // strip WordPress hash suffixes
+      .replace(/-scaled/, '')         // strip "scaled" suffix
+      .replace(/-\d{1,2}$/, '')       // strip trailing variant numbers (-1, -002)
+      .replace(/-/g, ' ');            // hyphens to spaces
+
+    // Replace camera-generated filenames (DSC/IMG) with category label
+    if (/^(DSC|IMG)[\d_ ]+$/.test(alt.trim())) {
+      alt = categoryLabels[categoryName] || alt;
+    }
+
+    img.alt = alt;
     figure.appendChild(img);
     gallery.appendChild(figure);
   });

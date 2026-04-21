@@ -297,8 +297,13 @@ git add -A && git commit -m "..." && git push
 **No missing features or content.** The redesign covers all content from the original WordPress site. The only structural difference is the Carporte gallery category, which was a placeholder with no images on the original site. All text content, contact info, legal pages, and gallery images are present in the redesign.
 
 **Action items before launch:**
-- [ ] Update "Herbst 2025" → "Herbst 2026" in `pages/ausbildung.html` and `data/messages.json`
-- [ ] Run pre-launch checklist (responsive testing, Lighthouse, image optimization, alt text audit)
+- [x] Update "Herbst 2025" → "Herbst 2026" in `pages/ausbildung.html` and `index.html` (done 2026-04-21)
+- [x] Responsive testing on mobile/tablet (done 2026-04-21)
+- [x] DSGVO compliance audit (done 2026-04-21, passed)
+- [x] Alt text audit and improvements (done 2026-04-21, 15 static + all dynamic images improved)
+- [ ] **Image optimization** — 167 MB total, 57 images >2000px. Resize to max 1920px, strip EXIF, consider WebP.
+- [ ] **Rename camera-filename images** (DSC/IMG) for better SEO and alt text.
+- [ ] **Lighthouse audit** — run after image optimization, target score ≥ 90.
 
 ---
 
