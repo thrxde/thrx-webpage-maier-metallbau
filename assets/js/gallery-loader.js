@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         'treppen': [
           'Stahlwangentreppe-mit-Podest.jpg',
           'Stahltreppe-verzinkt-mit-Gitterroststufen-und-Edelstahlhandlauf-e1472556612387.jpg',
-          'DSC01602.jpg',
-          'IMG_0841-e1495619483297.jpg',
+          'Treppengelaender-Stahlwange-mit-Podest.jpg',
+          'Wendeltreppe-mit-Edelstahlgelaender.jpg',
           'Treppengeländer-aus-Klarglas-mit-VA-Punkthaltern.jpg',
           'VA-Treppengeländer-mit-Klarglasfüllung-und-VA-Glashalter-I.jpg',
           'VA-Treppengeländer-mit-Klarglasfüllung-und-VA-Glashalter-II.jpg',
@@ -44,21 +44,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         ],
         'vordaecher': [
           'Balkon-und-Terrassenüberdachung-in-verzinkter-Ausführung.jpg',
-          'DSC00235-1.jpg',
-          'DSC01658-1.jpg',
-          'DSC01659.jpg',
+          'Edelstahl-Vordach-mit-Klarglas-Variante-1.jpg',
+          'Vordach-mit-Polycarbonat-Eindeckung.jpg',
+          'Moderner-Vordach-mit-Edelstahl-Unterkonstruktion.jpg',
           'Edelstahlvordach-mit-Klarglasfüllung.jpg',
           'Freitragendes-Vordach-mit-Milchglasfüllung-Wandkonsolen-pulverbeschichtet.jpg',
           'Glasvordach-mit-Edelstahlpunkthaltern-e1495617990629.jpg',
           'Terrassenüberdachung-verzinkte-Ausführung-I.jpg'
         ],
         'franzoesische-balkone': [
-          'IMG_3310.jpg',
-          'IMG_3311.jpg',
+          'Franzoesischer-Balkon-Edelstahl-Klarglas-Variante-1.jpg',
+          'Franzoesischer-Balkon-Edelstahl-Klarglas-Variante-2.jpg',
           'Edelstahl-mit-Klarglas-ohne-Handlauf.jpg'
         ],
         'gartentueren': [
-          'DSC00852.jpg',
+          'Gartentuer-mit-Edelstahlrahmen.jpg',
           'Gartentüre-aus-Flachstahl.jpg',
           'Gartentüre-mit-Briefkastenanlage.jpg',
           'Gartentüre-Rahmen-verzinkt-Füllung-Trespa-e1570009070479.jpg',
@@ -67,10 +67,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         ],
         'briefkastenanlagen': [
           'Briefkasten.jpg',
-          'DSC01603.jpg',
+          'Briefkasten-Mehrfach-Edelstahl.jpg',
           'Freistehender-Briefkasten.jpg',
           'Gartentüre-mit-Briefkastenanlage.jpg',
-          'DSC01602.jpg'
+          'Briefkasten-Wandmontage-Edelstahl.jpg'
         ],
         'sonderkonstruktionen': [
           'Blumenkübel-II.jpg',
@@ -108,8 +108,8 @@ function loadAllGalleries(basePath, gallery) {
     'treppen': [
       'Stahlwangentreppe-mit-Podest.jpg',
       'Stahltreppe-verzinkt-mit-Gitterroststufen-und-Edelstahlhandlauf-e1472556612387.jpg',
-      'DSC01602.jpg',
-      'IMG_0841-e1495619483297.jpg',
+      'Treppengelaender-Stahlwange-mit-Podest.jpg',
+      'Wendeltreppe-mit-Edelstahlgelaender.jpg',
       'Treppengeländer-aus-Klarglas-mit-VA-Punkthaltern.jpg',
       'VA-Treppengeländer-mit-Klarglasfüllung-und-VA-Glashalter-I.jpg',
       'VA-Treppengeländer-mit-Klarglasfüllung-und-VA-Glashalter-II.jpg',
@@ -120,21 +120,21 @@ function loadAllGalleries(basePath, gallery) {
     ],
     'vordaecher': [
       'Balkon-und-Terrassenüberdachung-in-verzinkter-Ausführung.jpg',
-      'DSC00235-1.jpg',
-      'DSC01658-1.jpg',
-      'DSC01659.jpg',
+      'Edelstahl-Vordach-mit-Klarglas-Variante-1.jpg',
+      'Vordach-mit-Polycarbonat-Eindeckung.jpg',
+      'Moderner-Vordach-mit-Edelstahl-Unterkonstruktion.jpg',
       'Edelstahlvordach-mit-Klarglasfüllung.jpg',
       'Freitragendes-Vordach-mit-Milchglasfüllung-Wandkonsolen-pulverbeschichtet.jpg',
       'Glasvordach-mit-Edelstahlpunkthaltern-e1495617990629.jpg',
       'Terrassenüberdachung-verzinkte-Ausführung-I.jpg'
     ],
     'franzoesische-balkone': [
-      'IMG_3310.jpg',
-      'IMG_3311.jpg',
+      'Franzoesischer-Balkon-Edelstahl-Klarglas-Variante-1.jpg',
+      'Franzoesischer-Balkon-Edelstahl-Klarglas-Variante-2.jpg',
       'Edelstahl-mit-Klarglas-ohne-Handlauf.jpg'
     ],
     'gartentueren': [
-      'DSC00852.jpg',
+      'Gartentuer-mit-Edelstahlrahmen.jpg',
       'Gartentüre-aus-Flachstahl.jpg',
       'Gartentüre-mit-Briefkastenanlage.jpg',
       'Gartentüre-Rahmen-verzinkt-Füllung-Trespa-e1570009070479.jpg',
@@ -143,10 +143,10 @@ function loadAllGalleries(basePath, gallery) {
     ],
     'briefkastenanlagen': [
       'Briefkasten.jpg',
-      'DSC01603.jpg',
+      'Briefkasten-Mehrfach-Edelstahl.jpg',
       'Freistehender-Briefkasten.jpg',
       'Gartentüre-mit-Briefkastenanlage.jpg',
-      'DSC01602.jpg'
+      'Briefkasten-Wandmontage-Edelstahl.jpg'
     ],
     'sonderkonstruktionen': [
       'Blumenkübel-II.jpg',
