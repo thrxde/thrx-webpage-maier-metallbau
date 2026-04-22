@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const galleryMain = document.querySelector('main.shell');
   if (galleryMain && location.pathname.includes('/pages/galerie/') && !location.pathname.endsWith('/index.html')) {
     const backBtn = document.createElement('a');
-    backBtn.href = '../../index.html#gallery';
+    backBtn.href = '../../index.html#services';
     backBtn.className = 'gallery-close-btn';
     backBtn.innerHTML = '← Zurück zur Übersicht';
     galleryMain.appendChild(backBtn);
