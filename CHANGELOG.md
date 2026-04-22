@@ -4,6 +4,22 @@ All notable changes to the Maier Metallbau website.
 
 ---
 
+## 2026-04-22: Hero section pill-list styling refactored to semantic bulleted list
+- **Task:** Change hero section pill-list from button-like appearance to proper semantic bulleted list.
+- **Issue:** The three-item list ("Edelstahl · Stahl · Aluminium", "Planung & Montage", "Sonderlösungen & Einzelstücke") was styled with `display: flex`, `flex-wrap: wrap`, `background`, `border-radius: 999px` creating a button-like appearance, which was semantically incorrect.
+- **Changes:**
+  - Modified `assets/css/style.css` lines 309-325 (`.pill-list` styling)
+  - Removed: `display: flex`, `flex-wrap: wrap`, `gap: 10px`, `background: rgba(255, 255, 255, 0.06)`, `border: 1px solid rgba(255, 255, 255, 0.12)`, `border-radius: 999px`, `padding: 8px 16px`
+  - Added: `list-style: disc`, `padding-left: 1.5em`
+  - Preserved: `font-weight: 600`, `color: #e2e8f0` for visual consistency with the design
+- **Files changed:** `assets/css/style.css`
+- **Deployment:**
+  - Committed: `git commit -m "Refactor: Change hero pill-list from flex buttons to semantic bulleted list"`
+  - Pushed: `git push origin main` — GitHub Pages auto-deployed
+  - **Verified:** Live at https://schlosserei-maier-ulm.github.io
+
+---
+
 ## 2026-04-22: Rename "Galerie" to "Einblicke" across site
 - **Task:** Change the gallery section label from "Galerie" to "Einblicke" (Insights) throughout the website for better brand messaging.
 - **Changes:**
