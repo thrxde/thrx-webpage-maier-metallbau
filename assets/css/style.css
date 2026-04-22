@@ -307,19 +307,19 @@ p {
 .hero__cta { display: flex; gap: 12px; flex-wrap: wrap; margin: 18px 0; }
 
 .pill-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
+  list-style: disc;
+  padding-left: 1.5em;
   margin: 18px 0 0;
+  color: #e2e8f0;
 }
 
-.pill-list li, .pill-list span {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  padding: 8px 12px;
+.pill-list li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.pill-list span {
   color: #e2e8f0;
   font-weight: 600;
 }
