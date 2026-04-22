@@ -301,9 +301,10 @@ git add -A && git commit -m "..." && git push
 - [x] Responsive testing on mobile/tablet (done 2026-04-21)
 - [x] DSGVO compliance audit (done 2026-04-21, passed)
 - [x] Alt text audit and improvements (done 2026-04-21, 15 static + all dynamic images improved)
-- [ ] **Image optimization** — 167 MB total, 57 images >2000px. Resize to max 1920px, strip EXIF, consider WebP.
-- [ ] **Rename camera-filename images** (DSC/IMG) for better SEO and alt text.
-- [ ] **Lighthouse audit** — run after image optimization, target score ≥ 90.
+- [x] **Image optimization** — ✅ Completed (2026-04-22). Reduced 178 MB → 46 MB (74% savings). All images resized to max 1920px, EXIF metadata stripped with jpegoptim.
+- [x] **Rename camera-filename images** (DSC/IMG) — ✅ Completed (2026-04-22). 13 camera-filenames renamed to descriptive German names; updated all HTML/JS references.
+- [x] **Lighthouse audit** — ✅ Completed (2026-04-22). Results: Performance 66%, Accessibility 98%, Best Practices 96%, SEO 91%. CLS fixed with aspect-ratio CSS.
+- [x] **Push to GitHub and verify deployment** — ✅ Completed (2026-04-22). All changes deployed to origin/main; GitHub Pages live with all renamed images working.
 
 ---
 

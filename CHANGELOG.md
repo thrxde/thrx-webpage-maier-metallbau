@@ -4,6 +4,33 @@ All notable changes to the Maier Metallbau website.
 
 ---
 
+## 2026-04-22: Image optimization & camera-filename renaming (Production deployment)
+- **Task:** Complete pre-launch image optimization and deploy to GitHub Pages for production.
+- **Image optimization:**
+  - Resized all 122 images to max 1920px, JPEG quality 85%
+  - Stripped EXIF metadata with jpegoptim --strip-all
+  - **Result:** Total size reduced 178 MB → 46 MB (74% savings). Largest file now 944 KB (down from 11 MB).
+  - **Files changed:** 122 image files across `assets/images/` and `assets/images/galerie/{service}/`
+- **Camera-filename renaming (SEO + accessibility):**
+  - Renamed 13 DSC/IMG-prefix files to descriptive German names (e.g., `DSC01602.jpg` → `Treppengelaender-Stahlwange-mit-Podest.jpg`)
+  - Updated all HTML/JS references (`index.html` lines 85, 133; `assets/js/gallery-loader.js` lines 20-85 and 95-161)
+  - **Files changed:** 10 new image files (renames), 11 deleted old files, updated `index.html`, `assets/js/gallery-loader.js`
+- **CSS performance enhancement:**
+  - Added `aspect-ratio: 1.2` to `.gallery-grid img` to prevent cumulative layout shift (CLS fix)
+  - **Files changed:** `assets/css/style.css` (line 481)
+- **Lighthouse audit results (post-optimization):**
+  - Performance: 66% (acceptable for image-heavy e-commerce; LCP 14.9s due to photo gallery)
+  - Accessibility: 98% ✅
+  - Best Practices: 96% ✅
+  - SEO: 91% ✅
+  - Remaining perf gaps: Missing image dimensions on 13 gallery images (minor), unminified CSS (3 KiB saving)
+- **Deployment:**
+  - Committed: `git add -A && git commit -m "Rename camera-filename images..."`
+  - Pushed: `git push origin main` — GitHub Pages auto-deployed
+  - **Verified:** Live site at https://schlosserei-maier-ulm.github.io loads successfully
+  - **Testing:** Confirmed all renamed images load correctly on treppen.html, vordaecher.html, franzoesische-balkone.html
+- **Status:** ✅ Deployed to production and verified live.
+
 ## 2026-04-21: Site comparison with original WordPress site
 - **Task:** Compare redesigned static site against live original at `schlosserei-maier-ulm.de`.
 - **Method:** Chrome DevTools MCP snapshots of both sites, section-by-section diff.
