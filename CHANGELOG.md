@@ -4,6 +4,19 @@ All notable changes to the Maier Metallbau website.
 
 ---
 
+## 2026-04-22: Gallery back button navigation fix
+- **Task:** Fix "Zurück zur Übersicht" button on gallery pages to navigate to services section instead of gallery overview.
+- **Change:**
+  - Modified `assets/js/main.js` line 71: Changed button link from `../../index.html#gallery` to `../../index.html#services`
+  - Button now directs users to the "Leistungen" (services) section on the homepage, providing better user journey flow
+- **Files changed:** `assets/js/main.js`
+- **Deployment:**
+  - Committed: `git commit -m "Fix: Change gallery back button link from #gallery to #services"`
+  - Pushed: `git push origin main` — GitHub Pages auto-deployed
+  - **Verified:** Live site navigation updated
+
+---
+
 ## 2026-04-22: Image optimization & camera-filename renaming (Production deployment)
 - **Task:** Complete pre-launch image optimization and deploy to GitHub Pages for production.
 - **Image optimization:**
