@@ -225,7 +225,7 @@ fetch(BASE + 'data/messages.json').then(r => r.json()).then(data => {
 Header Nav:
 ├── Über uns (#about)
 ├── Leistungen (#services)
-├── Galerie (#gallery)
+├── Einblicke (#gallery)
 ├── Ausbildung (#apprenticeship)
 └── Kontakt (#contact)
 

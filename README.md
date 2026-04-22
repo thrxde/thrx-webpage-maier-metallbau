@@ -15,7 +15,7 @@ Modernes, DSGVO-konformes Design – ohne Cookies, ohne Tracking, ohne externe R
 | Verzeichnis | Inhalt |
 |-------------|--------|
 | `index.html` | Startseite |
-| `pages/` | Unterseiten (Galerie, Ausbildung, Impressum, …) |
+| `pages/` | Unterseiten (Einblicke, Ausbildung, Impressum, …) |
 | `includes/` | Header & Footer (per JS geladen) |
 | `assets/` | CSS, JS, Fonts, Bilder |
 | `data/` | Nachrichten & Öffnungszeiten (JSON) |

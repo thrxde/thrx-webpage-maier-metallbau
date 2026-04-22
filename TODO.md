@@ -253,7 +253,7 @@ git add -A && git commit -m "..." && git push
 | Section | Original | Redesign | Status |
 |---------|----------|----------|--------|
 | **Header** | Logo image + site title + tagline | Logo text + nav + phone link | OK — improved |
-| **Navigation** | Über uns, Unser Aufgabenbereich, Galerie (submenu), Anfahrt, Datenschutz, Impressum | Über uns, Leistungen, Galerie, Ausbildung, Kontakt | OK — cleaner |
+| **Navigation** | Über uns, Unser Aufgabenbereich, Galerie (submenu), Anfahrt, Datenschutz, Impressum | Über uns, Leistungen, Einblicke, Ausbildung, Kontakt | OK — cleaner |
 | **Sidebar** | Address, opening hours, job offers, search, Ausbildung (WordPress widgets) | Integrated into homepage sections (opening hours card, contact section) | OK — content preserved, layout modernized |
 | **Homepage / About** | "Herzlich willkommen" text, customer list, team size, image slider | Same text, same customer list, same team, image stack | OK — content matches |
 | **Services** | "Unser Aufgabenbereich" separate page (broken — showed Ausbildung post instead) | Service cards on homepage with images linking to gallery categories | OK — improved |

@@ -4,6 +4,20 @@ All notable changes to the Maier Metallbau website.
 
 ---
 
+## 2026-04-22: Rename "Galerie" to "Einblicke" across site
+- **Task:** Change the gallery section label from "Galerie" to "Einblicke" (Insights) throughout the website for better brand messaging.
+- **Changes:**
+  - Navigation link in `includes/header.html`: "Galerie" → "Einblicke"
+  - Service card heading in `index.html`: "Galerie" → "Einblicke"
+  - Gallery overview page (`pages/galerie/index.html`): Title, breadcrumb, and H1 heading updated to "Einblicke"
+  - CSS class names remain unchanged (e.g., `gallery-grid`, `gallery-close-btn`) for internal consistency
+- **Files changed:** `includes/header.html`, `index.html`, `pages/galerie/index.html`
+- **Deployment:**
+  - Committed: `git commit -m "Rename: Change gallery section label from Galerie to Einblicke"`
+  - Pushed: `git push origin main` — GitHub Pages auto-deployed
+
+---
+
 ## 2026-04-22: Gallery back button navigation fix
 - **Task:** Fix "Zurück zur Übersicht" button on gallery pages to navigate to services section instead of gallery overview.
 - **Change:**

@@ -38,7 +38,7 @@ Navigate to base URL, hard-reload (ignore cache).
 ### 1.1 Header (loaded via includes/header.html)
 - [ ] Logo image `Maier-Logo-2.jpg` loads (HTTP 200, `alt="Maier Metallbau"`)
 - [ ] Brand text shows "MAIER METALLBAU GMBH" and "SCHLOSSEREI · ULM"
-- [ ] Nav links exist: Über uns, Leistungen, Galerie, Ausbildung, Kontakt
+- [ ] Nav links exist: Über uns, Leistungen, Einblicke, Ausbildung, Kontakt
 - [ ] Nav links point to `#about`, `#services`, `#gallery`, `#apprenticeship`, `#contact`
 - [ ] Phone link `tel:073163784` present
 - [ ] **No `{BASE}` or `%7BBASE%7D` in any URL or text** (critical)
@@ -74,7 +74,7 @@ Navigate to base URL, hard-reload (ignore cache).
   5. **Gartentüren** → `pages/gartentueren.html` — image `Gartentüre-aus-Flachstahl.jpg`
   6. **Briefkastenanlagen** → `pages/briefkastenanlagen.html` — image `Freistehender-Briefkasten.jpg`
   7. **Sonderkonstruktionen** → `pages/sonderkonstruktionen.html` — image `Blumenkübel-II.jpg`
-  8. **Galerie** → `pages/galerie.html` — image `Stahlwangentreppe-mit-Podest.jpg`
+   8. **Einblicke** → `pages/galerie.html` — image `Stahlwangentreppe-mit-Podest.jpg`
 - [ ] All 8 service card images load (HTTP 200, none broken)
 
 ### 1.6 Gallery Section (`#gallery`)
@@ -110,7 +110,7 @@ Navigate to base URL, hard-reload (ignore cache).
 - [ ] Logo image `Maier-Logo-2.jpg` loads (HTTP 200)
 - [ ] Address: "Schillerstr. 50" and "89077 Ulm"
 - [ ] Phone and email present
-- [ ] "Seiten" column links: Galerie, Ausbildung, Öffnungszeiten, Anfahrt
+- [ ] "Seiten" column links: Einblicke, Ausbildung, Öffnungszeiten, Anfahrt
 - [ ] "Rechtliches" column links: Impressum, Datenschutzerklärung, Sitemap
 - [ ] Copyright "© Maier Metallbau GmbH"
 - [ ] **No `{BASE}` or `%7BBASE%7D` in any URL or text**
@@ -261,7 +261,7 @@ Navigate to gallery page, hard-reload.
 ### 4.1 Page Structure
 - [ ] Page loads (HTTP 200), heading visible
 - [ ] Header/footer render correctly, no `{BASE}` in any URL
-- [ ] Breadcrumb: "Start" → `../index.html`, "Galerie" shown
+- [ ] Breadcrumb: "Start" → `../index.html`, "Einblicke" shown
 - [ ] No console errors
 - [ ] Gallery grid container has class `gallery-grid` (enables lightbox)
 
@@ -506,7 +506,7 @@ Test on homepage gallery section (`#gallery` with `data-gallery`):
 ### 12.1 Homepage Internal Links
 All internal links on the homepage must resolve (not 404):
 - [ ] Service cards: 8 links to `/pages/*.html`
-- [ ] Footer "Seiten": Galerie, Ausbildung, Öffnungszeiten, Anfahrt
+- [ ] Footer "Seiten": Einblicke, Ausbildung, Öffnungszeiten, Anfahrt
 - [ ] Footer "Rechtliches": Impressum, Datenschutzerklärung, Sitemap
 - [ ] Apprenticeship "Details zur Ausbildung" → `pages/ausbildung.html`
 - [ ] Contact "Anfahrt & Route" → `pages/anfahrt.html`
@@ -516,14 +516,14 @@ From any subpage (e.g. `pages/balkone.html`):
 - [ ] Logo link → `../index.html` (resolves, not 404, not `{BASE}`)
 - [ ] "Über uns" → `../index.html#about`
 - [ ] "Leistungen" → `../index.html#services`
-- [ ] "Galerie" → `../index.html#gallery`
+- [ ] "Einblicke" → `../index.html#gallery`
 - [ ] "Ausbildung" → `../index.html#apprenticeship`
 - [ ] "Kontakt" → `../index.html#contact`
 - [ ] Phone link: `tel:073163784`
 
 ### 12.3 Subpage Footer Links
 From any subpage:
-- [ ] Galerie → `galerie.html` (resolves)
+- [ ] Einblicke → `galerie.html` (resolves)
 - [ ] Ausbildung → `ausbildung.html` (resolves)
 - [ ] Öffnungszeiten → `oeffnungszeiten.html` (resolves)
 - [ ] Anfahrt → `anfahrt.html` (resolves)
